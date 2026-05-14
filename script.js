@@ -10,7 +10,11 @@
         genre: ["Shonen"],
         status: "Đang tiến hành",
         rating: 9,
-        summary: "Một hành trình tuyệt vời về tình bạn và sự tự do. Câu chuyện theo chân Monkey D. Luffy cùng các đồng đội trong băng hải tặc Mũ Rơm khám phá đại dương, tìm kiếm kho báu huyền thoại One Piece. Thế giới trong truyện được xây dựng cực kỳ đồ sộ, các tình tiết cài cắm (foreshadowing) đỉnh cao, mang lại nhiều cảm xúc từ hài hước đến cảm động sâu sắc."
+        intro: "hành trình trở thành vua hải tặc của Luffy..",
+        review:"lan man, dài quá",
+        link:""
+
+        
     },
     {
         title: "KonoSuba: Gods Blessing on this Wonderful World!",
@@ -19,7 +23,10 @@
         year: "2013",
         genre: ["Adventure", "Action", "Comedy"],
         status: "Đang tiến hành",
-        rating: 9.37
+        rating: 9.37,
+        intro: "Main chết ngu xong được chuyển sinh,..",
+        review: "peak isekai, mấy con gà biết gì:))",
+        link: "https://www.youtube.com/playlist?list=PLOVZwvNm10lXlKl2VHXGmpqqygCG6XbPw"
     },
     {
         title: "Grand Blue",
@@ -92,13 +99,29 @@ function renderReviews(mangasToDisplay) {
     });
 }
 
+
 // --- HÀM 2: Hàm chuyển mục và đổ dữ liệu sang mục Chi Tiết Truyện ---
 function goToMangaDetail(manga) {
     const mainPage = document.getElementById("main-page");
     const detailPage = document.getElementById("detail-page");
     const detailContent = document.getElementById("detail-content");
 
-    // Đổ dữ liệu chi tiết vào mục 2
+    // 1. Kiểm tra xem truyện có link hay không để quyết định ẩn/hiện
+    let linkHTML = "";
+    if (manga.link && manga.link.trim() !== "") {
+        linkHTML = `
+            <div class="space-y-2 pt-2 border-t border-gray-100">
+                <p class="text-sm font-semibold text-gray-800">
+                    🔗 Link xem: 
+                    <a href="${manga.link}" target="_blank" class="text-amber-600 hover:text-amber-700 hover:underline font-medium ml-1 transition-colors">
+                        Click để xem phim ➔
+                    </a>
+                </p>
+            </div>
+        `;
+    }
+
+    // 2. Đổ dữ liệu chi tiết vào trang (Đã sửa nút Quay lại và xử lý ẩn link xem)
     detailContent.innerHTML = `
         <div class="flex flex-col sm:flex-row gap-6 items-start pb-6 border-b border-gray-100">
             <div class="w-36 h-48 flex-shrink-0 mx-auto sm:mx-0 overflow-hidden rounded-xl shadow-md border border-gray-100">
@@ -124,39 +147,46 @@ function goToMangaDetail(manga) {
             </div>
         </div>
 
-        <div class="pt-6 space-y-3">
-            <h4 class="text-base font-black text-gray-900 flex items-center gap-2">
-                <span class="w-1.5 h-4 bg-amber-500 rounded-full"></span> Nội dung & Đánh giá chi tiết
-            </h4>
-            <p class="text-gray-600 text-[15px] leading-relaxed font-normal whitespace-pre-line bg-gray-50 p-5 rounded-2xl border border-gray-100 shadow-inner">
-                ${manga.summary}
-            </p>
+        <div class="pt-6 space-y-6">
+            <div class="space-y-2">
+                <h4 class="text-base font-black text-gray-900 flex items-center gap-2">
+                    <span class="w-1.5 h-4 bg-amber-500 rounded-full"></span> Giới thiệu
+                </h4>
+                <p class="text-gray-600 text-[14px] leading-relaxed font-normal bg-gray-50/50 p-4 rounded-xl border border-gray-100">
+                    ${manga.intro || 'Đang cập nhật phần giới thiệu...'}
+                </p>
+            </div>
+
+            <div class="space-y-2">
+                <h4 class="text-base font-black text-gray-900 flex items-center gap-2">
+                    <span class="w-1.5 h-4 bg-amber-500 rounded-full"></span> Review
+                </h4>
+                <p class="text-gray-600 text-[14px] leading-relaxed font-normal bg-gray-50/50 p-4 rounded-xl border border-gray-100">
+                    ${manga.review || 'Đang cập nhật bài review...'}
+                </p>
+            </div>
+
+            ${linkHTML}
         </div>
     `;
 
-    // Ẩn trang danh sách (Mục 1) và hiện trang chi tiết (Mục 2)
+    // 3. Kích hoạt trực tiếp sự kiện quay lại cho nút bấm có sẵn trong file index.html
+    const backBtn = document.getElementById("back-to-list-btn");
+    if (backBtn) {
+        backBtn.onclick = function() {
+            detailPage.classList.add("hidden"); // Ẩn trang chi tiết
+            mainPage.classList.remove("hidden"); // Hiện lại trang chính
+        };
+    }
+
+    // 4. Ẩn trang danh sách (Mục 1) và hiện trang chi tiết (Mục 2)
     mainPage.classList.add("hidden");
     detailPage.classList.remove("hidden");
     
-    // Tự động cuộn màn hình lên đầu trang cho dễ đọc
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// --- LẮNG NGHE SỰ KIỆN NÚT QUAY LẠI ---
-document.addEventListener("DOMContentLoaded", () => {
-    const backBtn = document.getElementById("back-to-list-btn");
-    const mainPage = document.getElementById("main-page");
-    const detailPage = document.getElementById("detail-page");
-
-    if (backBtn) {
-        backBtn.addEventListener("click", () => {
-            // Ngược lại: Ẩn trang chi tiết, hiện lại trang danh sách
-            detailPage.classList.add("hidden");
-            mainPage.classList.remove("hidden");
-        });
-    }
-});
-// --- HÀM 2: Lọc dữ liệu tổng hợp dựa trên cả Thể loại và Thanh tìm kiếm ---
+// --- HÀM 3: Lọc dữ liệu tổng hợp dựa trên cả Thể loại và Thanh tìm kiếm ---
 function filterData() {
     const searchKey = document.getElementById("search-input").value.toLowerCase().trim();
     
