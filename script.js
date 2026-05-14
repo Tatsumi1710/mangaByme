@@ -4,7 +4,7 @@
     const mangaData = [
     {
         title: "One Piece",
-        image: "onepiece.jpg",
+        image: "img/onepiece.jpg",
         author:"Oda Eiichiro",
         year: "1997",
         genre: ["Shonen"],
@@ -14,7 +14,7 @@
     },
     {
         title: "KonoSuba: Gods Blessing on this Wonderful World!",
-        image: "konosuba.jpg",
+        image: "img/konosuba.jpg",
         author: "Natsume Akatsuki",
         year: "2013",
         genre: ["Adventure", "Action", "Comedy"],
@@ -23,7 +23,7 @@
     },
     {
         title: "Grand Blue",
-        image: "grandblue.jpg",
+        image: "img/grandblue.jpg",
         author: "Kenji Inoue",
         year: "2014",
         genre: ["Comedy"],
@@ -40,6 +40,7 @@ let currentGenre = "all";
 // ==========================================
 
 // --- HÀM 1: Hiển thị danh sách truyện (Bấm vào sẽ mở to chi tiết) ---
+// --- HÀM 1: Hiển thị danh sách truyện (Bấm vào sẽ sang mục khác) ---
 function renderReviews(mangasToDisplay) {
     const container = document.getElementById("manga-container");
     container.innerHTML = ""; 
@@ -49,13 +50,12 @@ function renderReviews(mangasToDisplay) {
         return;
     }
 
-    mangasToDisplay.forEach((manga, index) => {
+    mangasToDisplay.forEach(manga => {
         const card = document.createElement("article");
-        // Thêm cursor-pointer và hiệu ứng hover nhẹ để người dùng biết có thể click được
         card.className = "bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-amber-200 transition-all duration-200 flex flex-col sm:flex-row gap-5 items-start cursor-pointer";
         
-        // Lắng nghe sự kiện click vào chiếc card để mở to ra
-        card.addEventListener("click", () => showMangaDetail(manga));
+        // SỰ KIỆN: Khi bấm vào chiếc card, kích hoạt hàm chuyển mục
+        card.addEventListener("click", () => goToMangaDetail(manga));
 
         card.innerHTML = `
             <div class="w-28 h-36 flex-shrink-0 mx-auto sm:mx-0 overflow-hidden rounded-lg shadow-inner bg-gray-50 border border-gray-100">
@@ -92,19 +92,20 @@ function renderReviews(mangasToDisplay) {
     });
 }
 
-// --- HÀM MỚI: Hiển thị bảng to (Modal) khi click vào truyện ---
-function showMangaDetail(manga) {
-    const modal = document.getElementById("manga-modal");
-    const modalContent = document.getElementById("modal-content");
+// --- HÀM 2: Hàm chuyển mục và đổ dữ liệu sang mục Chi Tiết Truyện ---
+function goToMangaDetail(manga) {
+    const mainPage = document.getElementById("main-page");
+    const detailPage = document.getElementById("detail-page");
+    const detailContent = document.getElementById("detail-content");
 
-    // Đổ dữ liệu chi tiết, bao gồm cả phần GIỚI THIỆU & ĐÁNH GIÁ TRUYỆN Ở DƯỚI
-    modalContent.innerHTML = `
-        <div class="flex flex-col sm:flex-row gap-6 items-start pb-5 border-b border-gray-100">
+    // Đổ dữ liệu chi tiết vào mục 2
+    detailContent.innerHTML = `
+        <div class="flex flex-col sm:flex-row gap-6 items-start pb-6 border-b border-gray-100">
             <div class="w-36 h-48 flex-shrink-0 mx-auto sm:mx-0 overflow-hidden rounded-xl shadow-md border border-gray-100">
                 <img src="${manga.image}" alt="${manga.title}" class="w-full h-full object-cover">
             </div>
             
-            <div class="space-y-2 w-full text-sm">
+            <div class="space-y-2.5 w-full text-sm">
                 <h3 class="text-2xl font-black text-gray-950 leading-tight">${manga.title}</h3>
                 
                 <div class="flex items-center gap-1.5 text-amber-600 font-black text-lg pt-1">
@@ -115,7 +116,7 @@ function showMangaDetail(manga) {
                 <p><span class="text-gray-400 font-medium">📅 Năm xuất bản:</span> <span class="text-gray-700">${manga.year}</span></p>
                 <p><span class="text-gray-400 font-medium">📌 Tình trạng:</span> <span class="text-amber-600 font-semibold">${manga.status}</span></p>
                 <div class="pt-1">
-                    <span class="text-gray-400 font-medium block mb-1">🏷️ Danh mục thể loại:</span>
+                    <span class="text-gray-400 font-medium block mb-1">🏷️ Thể loại truyện:</span>
                     <div class="flex flex-wrap gap-1.5">
                         ${manga.genre.map(g => `<span class="bg-amber-50 text-amber-700 border border-amber-100 px-2.5 py-0.5 rounded-md text-xs font-medium">${g}</span>`).join('')}
                     </div>
@@ -123,32 +124,35 @@ function showMangaDetail(manga) {
             </div>
         </div>
 
-        <div class="pt-5 space-y-2.5">
+        <div class="pt-6 space-y-3">
             <h4 class="text-base font-black text-gray-900 flex items-center gap-2">
-                <span class="w-1 h-4 bg-amber-500 rounded-full"></span> Nội dung & Đánh giá chi tiết
+                <span class="w-1.5 h-4 bg-amber-500 rounded-full"></span> Nội dung & Đánh giá chi tiết
             </h4>
-            <p class="text-gray-600 text-[14px] leading-relaxed font-normal whitespace-pre-line bg-gray-50 p-4 rounded-xl border border-gray-100 shadow-inner">
+            <p class="text-gray-600 text-[15px] leading-relaxed font-normal whitespace-pre-line bg-gray-50 p-5 rounded-2xl border border-gray-100 shadow-inner">
                 ${manga.summary}
             </p>
         </div>
     `;
 
-    // Hiển thị modal (Xóa class hidden)
-    modal.classList.remove("hidden");
+    // Ẩn trang danh sách (Mục 1) và hiện trang chi tiết (Mục 2)
+    mainPage.classList.add("hidden");
+    detailPage.classList.remove("hidden");
+    
+    // Tự động cuộn màn hình lên đầu trang cho dễ đọc
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// --- LẮNG NGHE SỰ KIỆN ĐÓNG MODAL KHI ẤN NÚT (X) HOẶC ẤN RA NGOÀI KHUNG ---
+// --- LẮNG NGHE SỰ KIỆN NÚT QUAY LẠI ---
 document.addEventListener("DOMContentLoaded", () => {
-    const modal = document.getElementById("manga-modal");
-    const closeBtn = document.getElementById("close-modal-btn");
+    const backBtn = document.getElementById("back-to-list-btn");
+    const mainPage = document.getElementById("main-page");
+    const detailPage = document.getElementById("detail-page");
 
-    if (closeBtn && modal) {
-        // Bấm nút X thì ẩn modal
-        closeBtn.addEventListener("click", () => modal.classList.add("hidden"));
-        
-        // Bấm trúng vùng đen bên ngoài cái hộp trắng thì cũng ẩn modal luôn
-        modal.addEventListener("click", (e) => {
-            if (e.target === modal) modal.classList.add("hidden");
+    if (backBtn) {
+        backBtn.addEventListener("click", () => {
+            // Ngược lại: Ẩn trang chi tiết, hiện lại trang danh sách
+            detailPage.classList.add("hidden");
+            mainPage.classList.remove("hidden");
         });
     }
 });
