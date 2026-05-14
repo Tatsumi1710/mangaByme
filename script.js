@@ -153,7 +153,7 @@ function goToMangaDetail(manga) {
                     <span class="w-1.5 h-4 bg-amber-500 rounded-full"></span> Giới thiệu
                 </h4>
                 <p class="text-gray-600 text-[14px] leading-relaxed font-normal bg-gray-50/50 p-4 rounded-xl border border-gray-100">
-                    ${manga.intro || 'Đang cập nhật phần giới thiệu...'}
+                    ${manga.intro || 'coming soon:)'}
                 </p>
             </div>
 
@@ -162,7 +162,7 @@ function goToMangaDetail(manga) {
                     <span class="w-1.5 h-4 bg-amber-500 rounded-full"></span> Review
                 </h4>
                 <p class="text-gray-600 text-[14px] leading-relaxed font-normal bg-gray-50/50 p-4 rounded-xl border border-gray-100">
-                    ${manga.review || 'Đang cập nhật bài review...'}
+                    ${manga.review || 'coming soon:)'}
                 </p>
             </div>
 
