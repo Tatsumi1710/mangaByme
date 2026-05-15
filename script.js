@@ -3,6 +3,19 @@
 // ==========================================
     const mangaData = [
     {
+        title: "Shikimori is just not cute",
+        image: "img/shikimori.jpg",
+        author: "Maki Keigo",
+        year: "2019",
+        genre: ["comedy"],
+        status: "Hoàn thành",
+        rating: 8.87,
+        intro: "",
+        review:"",
+        link: "https://www.youtube.com/playlist?list=PLdM751AKK4aPXPNBecZyWlru3Qe45ggrU"
+    },
+    
+    {
         title: "One Piece",
         image: "img/onepiece.jpg",
         author:"Oda Eiichiro",
@@ -14,7 +27,7 @@
         review:"lan man, dài quá",
         link:""
 
-        
+
     },
     {
         title: "KonoSuba: Gods Blessing on this Wonderful World!",
@@ -35,8 +48,13 @@
         year: "2014",
         genre: ["Comedy"],
         status: "Đang tiến hành",
-        rating: 8.75
+        rating: 8.75,
+        intro: "",
+        review: "",
+        link: ""
+
     }
+    
 ];
 
 // Biến toàn cục để lưu trạng thái thể loại đang chọn (mặc định là hiển thị 'all')
@@ -114,7 +132,7 @@ function goToMangaDetail(manga) {
                 <p class="text-sm font-semibold text-gray-800">
                     🔗 Link xem: 
                     <a href="${manga.link}" target="_blank" class="text-amber-600 hover:text-amber-700 hover:underline font-medium ml-1 transition-colors">
-                        Click để xem phim ➔
+                        Tại đây➔
                     </a>
                 </p>
             </div>
@@ -153,7 +171,7 @@ function goToMangaDetail(manga) {
                     <span class="w-1.5 h-4 bg-amber-500 rounded-full"></span> Giới thiệu
                 </h4>
                 <p class="text-gray-600 text-[14px] leading-relaxed font-normal bg-gray-50/50 p-4 rounded-xl border border-gray-100">
-                    ${manga.intro || 'coming soon:)'}
+                    ${manga.intro || 'Đang cập nhật...'}
                 </p>
             </div>
 
@@ -162,7 +180,7 @@ function goToMangaDetail(manga) {
                     <span class="w-1.5 h-4 bg-amber-500 rounded-full"></span> Review
                 </h4>
                 <p class="text-gray-600 text-[14px] leading-relaxed font-normal bg-gray-50/50 p-4 rounded-xl border border-gray-100">
-                    ${manga.review || 'coming soon:)'}
+                    ${manga.review || 'Đang cập nhật...'}
                 </p>
             </div>
 
