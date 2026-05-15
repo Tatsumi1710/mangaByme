@@ -3,14 +3,16 @@
 // ==========================================
     const mangaData = [
     {
-        title: "Shikimori is not just cute",
+        title: "Shikimori's Not Just a cutie",
         image: "img/shikimori.jpg",
         author: "Maki Keigo",
         year: "2019",
         genre: ["comedy"],
         status: "Hoàn thành",
         rating: 8.87,
-        intro: "",
+        intro:  `Izumi là một nam sinh trung học bị xui xẻo bẩm sinh.Bạn gái của cậu là một cô bạn cùng lớp tên Shikimori.
+        Shikimori rất xinh đẹp, dễ thương và tràn đầy tình yêu, tuy nhiên mỗi khi Izumi gặp rắc rối, cô lại trở thành người bạn gái ngầu nhất trên đời!
+        Cuộc sống thường ngày dễ thương và đầy những pha kỳ thú của Shikimori, Izumi và những người bạn sẽ bắt đầu tại đây.`,
         review:"",
         link: "https://www.youtube.com/playlist?list=PLdM751AKK4aPXPNBecZyWlru3Qe45ggrU"
     },
@@ -64,7 +66,6 @@ let currentGenre = "all";
 // ĐÁP ỨNG TIÊU CHÍ: 05 HÀM TỰ ĐỊNH NGHĨA
 // ==========================================
 
-// --- HÀM 1: Hiển thị danh sách truyện (Bấm vào sẽ mở to chi tiết) ---
 // --- HÀM 1: Hiển thị danh sách truyện (Bấm vào sẽ sang mục khác) ---
 function renderReviews(mangasToDisplay) {
     const container = document.getElementById("manga-container");
@@ -149,15 +150,15 @@ function goToMangaDetail(manga) {
             <div class="space-y-2.5 w-full text-sm">
                 <h3 class="text-2xl font-black text-gray-950 leading-tight">${manga.title}</h3>
                 
-                <div class="flex items-center gap-1.5 text-amber-600 font-black text-lg pt-1">
-                    <span>⭐ ${manga.rating}</span><span class="text-xs text-gray-400 font-bold">/10 ĐIỂM</span>
+                <div class="flex items-center gap-1.5 text-amber-600 font-black text-xl pt-1">
+                    <span>⭐ ${manga.rating}</span><span class="text-lg text-gray-750 font-bold">/10 </span>
                 </div>
 
-                <p><span class="text-gray-400 font-medium">🔹 Tác giả:</span> <strong class="text-gray-700 font-semibold">${manga.author}</strong></p>
-                <p><span class="text-gray-400 font-medium">📅 Năm xuất bản:</span> <span class="text-gray-700">${manga.year}</span></p>
-                <p><span class="text-gray-400 font-medium">📌 Tình trạng:</span> <span class="text-amber-600 font-semibold">${manga.status}</span></p>
+                <p><span class="text-gray-700 font-medium">🔹 Tác giả:</span> <strong class="text-gray-800 font-semibold">${manga.author}</strong></p>
+                <p><span class="text-gray-700 font-medium">📅 Năm xuất bản:</span> <span class="text-gray-800 font-semibold ">${manga.year}</span></p>
+                <p><span class="text-gray-700 font-medium">📌 Tình trạng:</span> <span class="text-amber-600 font-semibold">${manga.status}</span></p>
                 <div class="pt-1">
-                    <span class="text-gray-400 font-medium block mb-1">🏷️ Thể loại truyện:</span>
+                    <span class="text-gray-700 font-medium block mb-1">🏷️ Thể loại truyện:</span>
                     <div class="flex flex-wrap gap-1.5">
                         ${manga.genre.map(g => `<span class="bg-amber-50 text-amber-700 border border-amber-100 px-2.5 py-0.5 rounded-md text-xs font-medium">${g}</span>`).join('')}
                     </div>
@@ -170,7 +171,7 @@ function goToMangaDetail(manga) {
                 <h4 class="text-base font-black text-gray-900 flex items-center gap-2">
                     <span class="w-1.5 h-4 bg-amber-500 rounded-full"></span> Giới thiệu
                 </h4>
-                <p class="text-gray-600 text-[14px] leading-relaxed font-normal bg-gray-50/50 p-4 rounded-xl border border-gray-100">
+                <p class="text-gray-800 text-[14px] leading-relaxed font-medium bg-gray-50/50 p-4 rounded-xl border border-gray-100">
                     ${manga.intro || 'Đang cập nhật...'}
                 </p>
             </div>
@@ -179,7 +180,7 @@ function goToMangaDetail(manga) {
                 <h4 class="text-base font-black text-gray-900 flex items-center gap-2">
                     <span class="w-1.5 h-4 bg-amber-500 rounded-full"></span> Review
                 </h4>
-                <p class="text-gray-600 text-[14px] leading-relaxed font-normal bg-gray-50/50 p-4 rounded-xl border border-gray-100">
+                <p class="text-gray-800 text-[14px] leading-relaxed font-medium bg-gray-50/50 p-4 rounded-xl border border-gray-100">
                     ${manga.review || 'Đang cập nhật...'}
                 </p>
             </div>
