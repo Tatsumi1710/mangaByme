@@ -3,7 +3,7 @@
 // ==========================================
     const mangaData = [
     {
-        title: "Shikimori is just not cute",
+        title: "Shikimori is not just cute",
         image: "img/shikimori.jpg",
         author: "Maki Keigo",
         year: "2019",
