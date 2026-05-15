@@ -101,7 +101,7 @@ function renderReviews(mangasToDisplay) {
                 
                 <ul class="space-y-1 text-gray-700 font-normal">
                     <li><span class="text-gray-400 font-medium">🔹 Tác giả:</span> ${manga.author}</li>
-                    <li><span class="text-gray-400 font-medium">📅 Xuất bản:</span> Năm ${manga.year}</li>
+                    <li><span class="text-gray-400 font-medium">📅 Xuất bản:</span> ${manga.year}</li>
                     <li>
                         <span class="text-gray-400 font-medium">🏷️ Thể loại:</span> 
                         <div class="inline-flex flex-wrap gap-1">
