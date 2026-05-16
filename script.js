@@ -3,7 +3,36 @@
 // ==========================================
     const mangaData = [
     {
-        title: "Shikimori's Not Just a cutie",
+        title: "The Tunnal to Summer, the Exit of Goodbye",
+        othertitle: "Natsu e no Tonneru, Sayonara no Deguchi",
+        image: "img/theTunnal.jpg",
+        author: "Hachimoku Mei",
+        year: "2022",
+        genre:["comedy"],
+        status: "Hoàn thành",
+        rating: 8.5,
+        intro: "",
+        review: [""],
+        link: ""
+
+    },
+    {
+        title: "Josee, the Tiger and the Fish",
+        othertitle:"Joze to Tora to Sakana-tachi",
+        image: "img/josee.jpg",
+        author: "Seiko Tanabe",
+        year: "2020",
+        genre:["comedy"],
+        status: "Hoàn thành",
+        rating: 9.1,
+        intro:"",
+        review:[""],
+        link: ""
+    },
+
+    {
+        title: "Shikimori's Not Just a Cutie",
+        othertitle:"",
         image: "img/shikimori.jpg",
         author: "Maki Keigo",
         year: "2019",
@@ -13,12 +42,13 @@
         intro:  `Izumi là một nam sinh trung học bị xui xẻo bẩm sinh.Bạn gái của cậu là một cô bạn cùng lớp tên Shikimori.
         Shikimori rất xinh đẹp, dễ thương và tràn đầy tình yêu, tuy nhiên mỗi khi Izumi gặp rắc rối, cô lại trở thành người bạn gái ngầu nhất trên đời!
         Cuộc sống thường ngày dễ thương và đầy những pha kỳ thú của Shikimori, Izumi và những người bạn sẽ bắt đầu tại đây.`,
-        review:"",
+        review:[""],
         link: "https://www.youtube.com/playlist?list=PLdM751AKK4aPXPNBecZyWlru3Qe45ggrU"
     },
     
     {
         title: "One Piece",
+        othertitle:"",
         image: "img/onepiece.jpg",
         author:"Oda Eiichiro",
         year: "1997",
@@ -26,13 +56,14 @@
         status: "Đang tiến hành",
         rating: 9,
         intro: "hành trình trở thành vua hải tặc của Luffy..",
-        review:"lan man, dài quá",
+        review:["lan man, dài quá"],
         link:""
 
 
     },
     {
         title: "KonoSuba: Gods Blessing on this Wonderful World!",
+        othertitle:"Kono subarashii sekai ni shukufuku o!",
         image: "img/konosuba.jpg",
         author: "Natsume Akatsuki",
         year: "2013",
@@ -40,11 +71,12 @@
         status: "Đang tiến hành",
         rating: 9.37,
         intro: "Satou Kazuma, một hikikomori đam mê trò chơi, Nhưng cuộc sống ngắn ngủi của anh kết thúc vì tai nạn giao thông lãng xẹt ... Nhưng khi anh ta tỉnh dậy, một cô gái xinh đẹp, người tự gọi mình là một nữ thần đã ở phía trước đôi mắt anh ấy và đưa anh ấy đến một thế giới khác, Khi sang thế giới mới, cậu gặp ngày càng nhiều mấy cô nàng không điên thì cũng tâm thần, riết rồi cậu muốn quay trở về thế giới cũ càng nhanh càng tốt...",
-        review: "peak isekai, mấy con gà biết gì:))",
+        review: ["peak isekai, mấy con gà biết gì:))"],
         link: "https://www.youtube.com/playlist?list=PLOVZwvNm10lXlKl2VHXGmpqqygCG6XbPw"
     },
     {
         title: "Grand Blue",
+        othertitle: "",
         image: "img/grandblue.jpg",
         author: "Kenji Inoue",
         year: "2014",
@@ -52,7 +84,12 @@
         status: "Đang tiến hành",
         rating: 8.75,
         intro: "",
-        review: "",
+        review: ["bộ này bựa vl",
+                 "nên xem lúc mệt mỏi",
+            
+        ],
+                    
+                
         link: ""
 
     }
@@ -101,6 +138,7 @@ function renderReviews(mangasToDisplay) {
                 </div>
                 
                 <ul class="space-y-1 text-gray-700 font-normal">
+                    <li><span class="text-gray-400 font-medium">✏️ Tên khác:</span> ${manga.othertitle}</li>
                     <li><span class="text-gray-400 font-medium">🔹 Tác giả:</span> ${manga.author}</li>
                     <li><span class="text-gray-400 font-medium">📅 Xuất bản:</span> ${manga.year}</li>
                     <li>
@@ -154,6 +192,7 @@ function goToMangaDetail(manga) {
                     <span>⭐ ${manga.rating}</span><span class="text-lg text-gray-750 font-bold">/10 </span>
                 </div>
 
+                <p><span class="text-gray-700 font-medium">✏️ Tên khác:</span> <strong class="text-gray-800 font-semibold">${manga.othertitle}</strong></p>
                 <p><span class="text-gray-700 font-medium">🔹 Tác giả:</span> <strong class="text-gray-800 font-semibold">${manga.author}</strong></p>
                 <p><span class="text-gray-700 font-medium">📅 Năm xuất bản:</span> <span class="text-gray-800 font-semibold ">${manga.year}</span></p>
                 <p><span class="text-gray-700 font-medium">📌 Tình trạng:</span> <span class="text-amber-600 font-semibold">${manga.status}</span></p>
@@ -168,7 +207,7 @@ function goToMangaDetail(manga) {
 
         <div class="pt-6 space-y-6">
             <div class="space-y-2">
-                <h4 class="text-base font-black text-gray-900 flex items-center gap-2">
+                <h4 class="text-base font-black text-gray-800 flex items-center gap-2">
                     <span class="w-1.5 h-4 bg-amber-500 rounded-full"></span> Giới thiệu
                 </h4>
                 <p class="text-gray-800 text-[14px] leading-relaxed font-medium bg-gray-50/50 p-4 rounded-xl border border-gray-100">
@@ -180,9 +219,16 @@ function goToMangaDetail(manga) {
                 <h4 class="text-base font-black text-gray-900 flex items-center gap-2">
                     <span class="w-1.5 h-4 bg-amber-500 rounded-full"></span> Review
                 </h4>
-                <p class="text-gray-800 text-[14px] leading-relaxed font-medium bg-gray-50/50 p-4 rounded-xl border border-gray-100">
-                    ${manga.review || 'Đang cập nhật...'}
-                </p>
+                
+                <div class="bg-gray-50/50 p-5 rounded-xl border border-gray-100">
+                    <ul class="list-disc pl-5 space-y-2 text-gray-800 text-[14px] leading-relaxed font-medium">
+                        ${
+                            Array.isArray(manga.review)
+                            ? manga.review.map(item => `<li>${item}</li>`).join('')
+                            : `<li>${manga.review || 'Đang cập nhật bài'}</li>`
+                        }
+                    </ul>
+                </div>
             </div>
 
             ${linkHTML}
