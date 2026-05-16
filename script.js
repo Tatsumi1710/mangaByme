@@ -3,12 +3,83 @@
 // ==========================================
     const mangaData = [
     {
+        title: "Akame ga Kill",
+        othertitle: "Akame ga Kiru",
+        image: "img/Akamegakill.jpg",
+        author: "Takahiro",
+        year: "20/3/2010",
+        genre: ["Dark Fantasy", "Action"],
+        status: "Hoàn thành",
+        rating: "9.25",
+        intro:"",
+        review: ["Đây là bộ anime đầu tiên mình xem",
+                "Cái tên Tatsumi mình lấy từ nhân vật chính của bộ truyện này:v",
+        ],
+        link: ""
+    },
+    {
+        title: "Date a Live",
+        othertitle: "Dēto A Raibu",
+        image: "img/datealive.jpg",
+        author: "Tachibana Kōshi",
+        year: "2011",
+        genre: ["Harem","Comedy","Fantasy"],
+        status: "Hoàn thành",
+        rating: 8.2,
+        intro: "",
+        review: [],
+        link: ""
+    },
+    {
+        title:"Song Tinh Diệt Quỷ Sư",
+        othertitle: "Sōsei no Onmyōji",
+        image: "img/onmyoji.jpg",
+        author: "Yoshiaki Sukeno",
+        year: "2013",
+        genre: ["Adventure","Comedy","Supernatural"],
+        status: "Hoàn thành",
+        rating: 8.8,
+        intro: "",
+        review:[],
+        link: ""
+    },
+    {
+        title: "Fly Me to The Moon",
+        othertitle: "Tonikaku Kawaii",
+        image: "img/tonikaku.jpg",
+        author: "Hata Kenjiro",
+        year:"14/2/2018,",
+        genre:["Comedy"],
+        status:"Đang tiến hành",
+        rating: 8.4,
+        intro: "",
+        review:[],
+        link: ""
+
+    },
+    {
+        title:"The Angel Next Door Spoils Me Rotten",
+        othertitle: "Otonari no Tenshi-sama ni Itsu no Ma ni ka Dame Ningen ni Sareteita Ken",
+        image:"img/tenshi.jpg",
+        author:"Saekisan",
+        year:"2018",
+        genre: ["Comedy"],
+        status: "Đang tiến hành",
+        rating: 9,
+        intro: "",
+        review:[],
+        link: "https://www.youtube.com/playlist?list=PLxSscENEp7JiAoaxImun4H_FRDkFI9k3Q"
+
+
+
+    },
+    {
         title: "The Tunnal to Summer, the Exit of Goodbye",
         othertitle: "Natsu e no Tonneru, Sayonara no Deguchi",
         image: "img/theTunnal.jpg",
         author: "Hachimoku Mei",
         year: "2022",
-        genre:["comedy"],
+        genre:["Comedy"],
         status: "Hoàn thành",
         rating: 8.5,
         intro: "",
@@ -22,7 +93,7 @@
         image: "img/josee.jpg",
         author: "Seiko Tanabe",
         year: "2020",
-        genre:["comedy"],
+        genre:["Comedy"],
         status: "Hoàn thành",
         rating: 9.1,
         intro:"",
@@ -32,11 +103,11 @@
 
     {
         title: "Shikimori's Not Just a Cutie",
-        othertitle:"",
+        othertitle:"Kawaii dake ja Nai Shikimori-san",
         image: "img/shikimori.jpg",
         author: "Maki Keigo",
         year: "2019",
-        genre: ["comedy"],
+        genre: ["Comedy"],
         status: "Hoàn thành",
         rating: 8.87,
         intro:  `Izumi là một nam sinh trung học bị xui xẻo bẩm sinh.Bạn gái của cậu là một cô bạn cùng lớp tên Shikimori.
@@ -48,7 +119,7 @@
     
     {
         title: "One Piece",
-        othertitle:"",
+        othertitle:"One Piece",
         image: "img/onepiece.jpg",
         author:"Oda Eiichiro",
         year: "1997",
@@ -62,6 +133,22 @@
 
     },
     {
+        title: "Grand Blue",
+        othertitle: "",
+        image: "img/grandblue.jpg",
+        author: "Kenji Inoue",
+        year: "2014",
+        genre: ["Comedy"],
+        status: "Đang tiến hành",
+        rating: 8.75,
+        intro: "",
+        review: ["bộ này bựa vl"],
+                    
+         link: ""
+
+    },
+
+    {
         title: "KonoSuba: Gods Blessing on this Wonderful World!",
         othertitle:"Kono subarashii sekai ni shukufuku o!",
         image: "img/konosuba.jpg",
@@ -72,29 +159,16 @@
         rating: 9.37,
         intro: "Satou Kazuma, một hikikomori đam mê trò chơi, Nhưng cuộc sống ngắn ngủi của anh kết thúc vì tai nạn giao thông lãng xẹt ... Nhưng khi anh ta tỉnh dậy, một cô gái xinh đẹp, người tự gọi mình là một nữ thần đã ở phía trước đôi mắt anh ấy và đưa anh ấy đến một thế giới khác, Khi sang thế giới mới, cậu gặp ngày càng nhiều mấy cô nàng không điên thì cũng tâm thần, riết rồi cậu muốn quay trở về thế giới cũ càng nhanh càng tốt...",
         review: ["peak isekai, mấy con gà biết gì:))"],
-        link: "https://www.youtube.com/playlist?list=PLOVZwvNm10lXlKl2VHXGmpqqygCG6XbPw"
-    },
-    {
-        title: "Grand Blue",
-        othertitle: "",
-        image: "img/grandblue.jpg",
-        author: "Kenji Inoue",
-        year: "2014",
-        genre: ["Comedy"],
-        status: "Đang tiến hành",
-        rating: 8.75,
-        intro: "",
-        review: ["bộ này bựa vl",
-                 
-            
-        ],
-                    
-                
-        link: ""
-
+        link: "https://www.youtube.com/playlist?list=PLOVZwvNm10lXlKl2VHXGmpqqygCG6XbPw",
     }
     
+    
 ];
+
+// --- CẤU HÌNH PHÂN TRANG ---
+let currentPage = 1;       // Mặc định ban đầu ở trang 1
+const itemsPerPage = 8;    // Số lượng truyện hiển thị trên mỗi trang
+let globalMangasToDisplay = []; // Biến lưu trữ danh sách truyện sau khi đã tìm kiếm/lọc
 
 // Biến toàn cục để lưu trạng thái thể loại đang chọn (mặc định là hiển thị 'all')
 let currentGenre = "all";
@@ -103,8 +177,11 @@ let currentGenre = "all";
 // ĐÁP ỨNG TIÊU CHÍ: 05 HÀM TỰ ĐỊNH NGHĨA
 // ==========================================
 
-// --- HÀM 1: Hiển thị danh sách truyện (Bấm vào sẽ sang mục khác) ---
+// --- HÀM 1: Hiển thị danh sách truyện kèm Phân Trang (Co dãn tự nhiên) ---
 function renderReviews(mangasToDisplay) {
+    // Lưu danh sách truyện cần hiển thị vào biến toàn cục để các nút bấm trang dùng chung
+    globalMangasToDisplay = mangasToDisplay; 
+    
     const container = document.getElementById("manga-container");
     container.innerHTML = ""; 
 
@@ -113,11 +190,18 @@ function renderReviews(mangasToDisplay) {
         return;
     }
 
-    mangasToDisplay.forEach(manga => {
+    // 1. TÍNH TOÁN VỊ TRÍ ĐỂ CẮT MẢNG DỮ LIỆU
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginatedMangas = mangasToDisplay.slice(startIndex, endIndex);
+
+    // 2. HIỂN THỊ CÁC THẺ TRUYỆN CỦA TRANG HIỆN TẠI
+    paginatedMangas.forEach(manga => {
         const card = document.createElement("article");
-        card.className = "bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-amber-200 transition-all duration-200 flex flex-col sm:flex-row gap-5 items-start cursor-pointer";
         
-        // SỰ KIỆN: Khi bấm vào chiếc card, kích hoạt hàm chuyển mục
+        // Class chuẩn: items-start và không ép cứng chiều cao (h-auto tự nhiên)
+        card.className = "w-full bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-amber-200 transition-all duration-200 flex flex-col sm:flex-row gap-5 items-start cursor-pointer";
+        
         card.addEventListener("click", () => goToMangaDetail(manga));
 
         card.innerHTML = `
@@ -137,10 +221,11 @@ function renderReviews(mangasToDisplay) {
                     </div>
                 </div>
                 
+                <p class="text-xs text-gray-400 font-medium -mt-1 mb-2">🔹 Tên khác: ${manga.otherTitle || 'Đang cập nhật...'}</p>
+                
                 <ul class="space-y-1 text-gray-700 font-normal">
-                    <li><span class="text-gray-400 font-medium">✏️ Tên khác:</span> ${manga.othertitle}</li>
                     <li><span class="text-gray-400 font-medium">🔹 Tác giả:</span> ${manga.author}</li>
-                    <li><span class="text-gray-400 font-medium">📅 Xuất bản:</span> ${manga.year}</li>
+                    <li><span class="text-gray-400 font-medium">📅 Xuất bản:</span> Năm ${manga.year}</li>
                     <li>
                         <span class="text-gray-400 font-medium">🏷️ Thể loại:</span> 
                         <div class="inline-flex flex-wrap gap-1">
@@ -151,12 +236,89 @@ function renderReviews(mangasToDisplay) {
                 </ul>
             </div>
         `;
-        
         container.appendChild(card);
     });
+  
+    // 3. TỰ ĐỘNG SINH CỤM NÚT PHÂN TRANG [1] [2] [3] Ở PHÍA DƯỚI DÀNH CHO BẠN
+    renderPaginationControls(mangasToDisplay.length);
 }
 
+// --- HÀM: Tạo và điều khiển các nút bấm chuyển trang (Có thêm Mũi tên Trước / Sau) ---
+function renderPaginationControls(totalItems) {
+    const totalPages = Math.ceil(totalItems / itemsPerPage); // Tính tổng số trang
+    
+    // Nếu tổng số truyện quá ít (chỉ có 1 trang) thì không cần hiện thanh phân trang
+    if (totalPages <= 1) return;
 
+    const container = document.getElementById("manga-container");
+    
+    // Tạo vùng chứa các nút bấm căn giữa
+    const paginationDiv = document.createElement("div");
+    paginationDiv.className = "flex justify-center items-center gap-2 pt-6 w-full pb-4";
+
+    // ==========================================
+    // 1. NÚT MŨI TÊN "TRƯỚC" (PREVIOUS BUTTON)
+    // ==========================================
+    const prevBtn = document.createElement("button");
+    prevBtn.innerHTML = "◀";
+    
+    if (currentPage === 1) {
+        // Nếu đang ở trang 1 thì làm mờ nút Trước và không cho bấm
+        prevBtn.className = "px-3 py-2 bg-gray-50 text-gray-300 border border-gray-100 rounded-xl text-sm font-medium cursor-not-allowed shadow-sm";
+    } else {
+        // Nếu ở trang lớn hơn 1 thì cho bấm thoải mái
+        prevBtn.className = "px-3 py-2 bg-white text-gray-700 border border-gray-200 rounded-xl text-sm font-medium hover:border-amber-500 hover:text-amber-500 transition-colors cursor-pointer shadow-sm";
+        prevBtn.addEventListener("click", () => {
+            currentPage--; // Giảm đi 1 trang
+            renderReviews(globalMangasToDisplay);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+    paginationDiv.appendChild(prevBtn);
+
+    // ==========================================
+    // 2. CÁC NÚT SỐ TRANG [1] [2] [3]...
+    // ==========================================
+    for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement("button");
+        btn.innerText = i;
+        
+        if (i === currentPage) {
+            btn.className = "px-4 py-2 bg-amber-500 text-white font-bold rounded-xl text-sm shadow-sm cursor-default";
+        } else {
+            btn.className = "px-4 py-2 bg-white text-gray-700 border border-gray-200 rounded-xl text-sm font-medium hover:border-amber-500 hover:text-amber-500 transition-colors cursor-pointer shadow-sm";
+            btn.addEventListener("click", () => {
+                currentPage = i;
+                renderReviews(globalMangasToDisplay);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+        paginationDiv.appendChild(btn);
+    }
+
+    // ==========================================
+    // 3. NÚT MŨI TÊN "SAU" (NEXT BUTTON)
+    // ==========================================
+    const nextBtn = document.createElement("button");
+    nextBtn.innerHTML = "▶";
+    
+    if (currentPage === totalPages) {
+        // Nếu đang ở trang cuối cùng thì làm mờ nút Sau và không cho bấm
+        nextBtn.className = "px-3 py-2 bg-gray-50 text-gray-300 border border-gray-100 rounded-xl text-sm font-medium cursor-not-allowed shadow-sm";
+    } else {
+        // Nếu chưa phải trang cuối thì cho bấm thoải mái
+        nextBtn.className = "px-3 py-2 bg-white text-gray-700 border border-gray-200 rounded-xl text-sm font-medium hover:border-amber-500 hover:text-amber-500 transition-colors cursor-pointer shadow-sm";
+        nextBtn.addEventListener("click", () => {
+            currentPage++; // Tăng thêm 1 trang
+            renderReviews(globalMangasToDisplay);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+    paginationDiv.appendChild(nextBtn);
+    
+    // Đẩy toàn bộ cụm nút vào container chính
+    container.appendChild(paginationDiv);
+}
 // --- HÀM 2: Hàm chuyển mục và đổ dữ liệu sang mục Chi Tiết Truyện ---
 function goToMangaDetail(manga) {
     const mainPage = document.getElementById("main-page");
@@ -194,7 +356,7 @@ function goToMangaDetail(manga) {
 
                 <p><span class="text-gray-700 font-medium">✏️ Tên khác:</span> <strong class="text-gray-800 font-semibold">${manga.othertitle}</strong></p>
                 <p><span class="text-gray-700 font-medium">🔹 Tác giả:</span> <strong class="text-gray-800 font-semibold">${manga.author}</strong></p>
-                <p><span class="text-gray-700 font-medium">📅 Năm xuất bản:</span> <span class="text-gray-800 font-semibold ">${manga.year}</span></p>
+                <p><span class="text-gray-700 font-medium">📅 Xuất bản:</span> <span class="text-gray-800 font-semibold ">${manga.year}</span></p>
                 <p><span class="text-gray-700 font-medium">📌 Tình trạng:</span> <span class="text-amber-600 font-semibold">${manga.status}</span></p>
                 <div class="pt-1">
                     <span class="text-gray-700 font-medium block mb-1">🏷️ Thể loại truyện:</span>
@@ -267,6 +429,7 @@ function goToMangaDetail(manga) {
 
 // --- HÀM 3: Lọc dữ liệu tổng hợp dựa trên cả Thể loại và Thanh tìm kiếm ---
 function filterData() {
+    currentPage = 1; // Đưa về trang 1 khi tìm kiếm hoặc lọc thể loại
     const searchKey = document.getElementById("search-input").value.toLowerCase().trim();
     
     const filtered = mangaData.filter(manga => {
