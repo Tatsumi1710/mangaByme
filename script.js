@@ -12,7 +12,7 @@
         status: "Hoàn thành",
         rating: 8.5,
         intro: "",
-        review: [""],
+        review: [],
         link: ""
 
     },
@@ -26,7 +26,7 @@
         status: "Hoàn thành",
         rating: 9.1,
         intro:"",
-        review:[""],
+        review:[],
         link: ""
     },
 
@@ -42,7 +42,7 @@
         intro:  `Izumi là một nam sinh trung học bị xui xẻo bẩm sinh.Bạn gái của cậu là một cô bạn cùng lớp tên Shikimori.
         Shikimori rất xinh đẹp, dễ thương và tràn đầy tình yêu, tuy nhiên mỗi khi Izumi gặp rắc rối, cô lại trở thành người bạn gái ngầu nhất trên đời!
         Cuộc sống thường ngày dễ thương và đầy những pha kỳ thú của Shikimori, Izumi và những người bạn sẽ bắt đầu tại đây.`,
-        review:[""],
+        review:[],
         link: "https://www.youtube.com/playlist?list=PLdM751AKK4aPXPNBecZyWlru3Qe45ggrU"
     },
     
@@ -85,7 +85,7 @@
         rating: 8.75,
         intro: "",
         review: ["bộ này bựa vl",
-                 "nên xem lúc mệt mỏi",
+                 
             
         ],
                     
@@ -205,34 +205,48 @@ function goToMangaDetail(manga) {
             </div>
         </div>
 
-        <div class="pt-6 space-y-6">
+       <div class="pt-6 space-y-6">
             <div class="space-y-2">
                 <h4 class="text-base font-black text-gray-800 flex items-center gap-2">
                     <span class="w-1.5 h-4 bg-amber-500 rounded-full"></span> Giới thiệu
                 </h4>
-                <p class="text-gray-800 text-[14px] leading-relaxed font-medium bg-gray-50/50 p-4 rounded-xl border border-gray-100">
-                    ${manga.intro || 'Đang cập nhật...'}
-                </p>
+                <div class="bg-gray-100 p-5 rounded-xl border border-gray-100">
+                    ${
+                        manga.intro && manga.intro.trim() !== ""
+                        ? `<p class="text-gray-700 text-[14px] leading-relaxed font-medium">${manga.intro}</p>`
+                        : `<p class="text-gray-700 text-[14px] font-medium ">Đang cập nhật...</p>`
+                    }
+                </div>
             </div>
 
             <div class="space-y-2">
-                <h4 class="text-base font-black text-gray-900 flex items-center gap-2">
+                <h4 class="text-base font-black text-gray-800 flex items-center gap-2">
                     <span class="w-1.5 h-4 bg-amber-500 rounded-full"></span> Review
                 </h4>
-                
-                <div class="bg-gray-50/50 p-5 rounded-xl border border-gray-100">
-                    <ul class="list-disc pl-5 space-y-2 text-gray-800 text-[14px] leading-relaxed font-medium">
-                        ${
-                            Array.isArray(manga.review)
-                            ? manga.review.map(item => `<li>${item}</li>`).join('')
-                            : `<li>${manga.review || 'Đang cập nhật bài'}</li>`
-                        }
-                    </ul>
+                <div class="bg-gray-100 p-5 rounded-xl border border-gray-100">
+                    ${
+                        (Array.isArray(manga.review) && manga.review.length > 0) || (typeof manga.review === 'string' && manga.review.trim() !== "")
+                        ? `
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700 text-[14px] leading-relaxed font-medium">
+                                ${
+                                    Array.isArray(manga.review)
+                                    ? manga.review.map(item => `<li>${item}</li>`).join('')
+                                    : `<li>${manga.review}</li>`
+                                }
+                            </ul>
+                        `
+                        : `
+                            <p class="text-gray-700 text-[14px] font-medium">
+                                Đang cập nhật...
+                            </p>
+                        `
+                    }
                 </div>
             </div>
 
             ${linkHTML}
         </div>
+
     `;
 
     // 3. Kích hoạt trực tiếp sự kiện quay lại cho nút bấm có sẵn trong file index.html
