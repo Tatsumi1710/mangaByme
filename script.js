@@ -167,7 +167,7 @@
 
 // --- CẤU HÌNH PHÂN TRANG ---
 let currentPage = 1;       // Mặc định ban đầu ở trang 1
-const itemsPerPage = 8;    // Số lượng truyện hiển thị trên mỗi trang
+const itemsPerPage = 10;    // Số lượng truyện hiển thị trên mỗi trang
 let globalMangasToDisplay = []; // Biến lưu trữ danh sách truyện sau khi đã tìm kiếm/lọc
 
 // Biến toàn cục để lưu trạng thái thể loại đang chọn (mặc định là hiển thị 'all')
@@ -205,7 +205,7 @@ function renderReviews(mangasToDisplay) {
         card.addEventListener("click", () => goToMangaDetail(manga));
 
         card.innerHTML = `
-            <div class="w-28 h-36 flex-shrink-0 mx-auto sm:mx-0 overflow-hidden rounded-lg shadow-inner bg-gray-50 border border-gray-100">
+            <div class="w-32 h-48 flex-shrink-0 mx-auto sm:mx-0 overflow-hidden rounded-lg shadow-inner bg-gray-50 border border-gray-100">
                 <img src="${manga.image}" alt="${manga.title}" class="w-full h-full object-cover">
             </div>
             
@@ -221,18 +221,21 @@ function renderReviews(mangasToDisplay) {
                     </div>
                 </div>
                 
-                <p class="text-xs text-gray-400 font-medium -mt-1 mb-2">🔹 Tên khác: ${manga.otherTitle || 'Đang cập nhật...'}</p>
+                
                 
                 <ul class="space-y-1 text-gray-700 font-normal">
-                    <li><span class="text-gray-400 font-medium">🔹 Tác giả:</span> ${manga.author}</li>
-                    <li><span class="text-gray-400 font-medium">📅 Xuất bản:</span> Năm ${manga.year}</li>
+                    <li><span class ="text-gray-700 font-medium">✏️ Tên khác:</span> ${manga.othertitle}</li>
+                    <li><span class="text-gray-700 font-medium">🔹 Tác giả:</span> ${manga.author}</li>
+                    <li><span class="text-gray-700 font-medium">📅 Xuất bản:</span> ${manga.year}</li>
+                    <li><span class="text-gray-700 font-medium">📌 Tình trạng:</span> ${manga.status}</li>
+                </ul>
+                <ul class="space-y-1 text-gray-700 font-normal">
                     <li>
-                        <span class="text-gray-400 font-medium">🏷️ Thể loại:</span> 
-                        <div class="inline-flex flex-wrap gap-1">
-                            ${manga.genre.map(g => `<span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded text-xs font-medium">${g}</span>`).join('')}
-                        </div>
+                        <span class="text-gray-700 font-medium">🏷️ Thể loại:</span>
+                        <span class="inline-flex flex-wrap gap-1">
+                            ${manga.genre.map(g => `<span class="bg-gray-200 text-amber-600 px-2 py-0.5 rounded text-xs font-medium">${g}</span>`).join('')}
+                        </span>
                     </li>
-                    <li><span class="text-gray-400 font-medium">📌 Tình trạng:</span> <span class="text-amber-600 font-medium">${manga.status}</span></li>
                 </ul>
             </div>
         `;
@@ -376,7 +379,7 @@ function goToMangaDetail(manga) {
     // 2. Đổ dữ liệu chi tiết vào trang (Đã sửa nút Quay lại và xử lý ẩn link xem)
     detailContent.innerHTML = `
         <div class="flex flex-col sm:flex-row gap-6 items-start pb-6 border-b border-gray-100">
-            <div class="w-36 h-48 flex-shrink-0 mx-auto sm:mx-0 overflow-hidden rounded-xl shadow-md border border-gray-100">
+            <div class="w-32 h-48 flex-shrink-0 mx-auto sm:mx-0 overflow-hidden rounded-xl shadow-md border border-gray-100">
                 <img src="${manga.image}" alt="${manga.title}" class="w-full h-full object-cover">
             </div>
             
@@ -392,7 +395,7 @@ function goToMangaDetail(manga) {
                 <p><span class="text-gray-700 font-medium">📅 Xuất bản:</span> <span class="text-gray-800 font-semibold ">${manga.year}</span></p>
                 <p><span class="text-gray-700 font-medium">📌 Tình trạng:</span> <span class="text-amber-600 font-semibold">${manga.status}</span></p>
                 <div class="pt-1">
-                    <span class="text-gray-700 font-medium block mb-1">🏷️ Thể loại truyện:</span>
+                    <span class="text-gray-700 font-medium block mb-1">🏷️ Thể loại:</span>
                     <div class="flex flex-wrap gap-1.5">
                         ${manga.genre.map(g => `<span class="bg-amber-50 text-amber-700 border border-amber-100 px-2.5 py-0.5 rounded-md text-xs font-medium">${g}</span>`).join('')}
                     </div>
