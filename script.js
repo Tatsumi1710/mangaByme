@@ -98,7 +98,7 @@
         rating: 9.1,
         intro:"",
         review:[],
-        link: "Đang cập nhật"
+        link: ""
     },
 
     {
@@ -326,15 +326,48 @@ function goToMangaDetail(manga) {
     const detailContent = document.getElementById("detail-content");
 
     // 1. Kiểm tra xem truyện có link hay không để quyết định ẩn/hiện
-    let linkHTML = "";
+    let linkXemHTML = "";
     if (manga.link && manga.link.trim() !== "") {
-        linkHTML = `
+        linkXemHTML = `
             <div class="space-y-2 pt-2 border-t border-gray-100">
                 <p class="text-sm font-semibold text-gray-800">
                     🔗 Link xem: 
                     <a href="${manga.link}" target="_blank" class="text-amber-600 hover:text-amber-700 hover:underline font-medium ml-1 transition-colors">
                         Tại đây➔
                     </a>
+                </p>
+            </div>
+        `;
+
+    } else {
+        linkXemHTML = `
+            <div class="space-y-2 pt-2 border-t border-gray-100">
+                <p class ="text-sm font-semibold text-gray-800">
+                    🔗 Link xem:
+                    <span class="text-gray-700 font semibold italic ml-1">Updated soon</span>
+                </p>
+            </div>
+        `;            
+    }
+
+    let linkDocHTML = "";
+    if (manga.linkDoc && manga.linkDoc.trim() !== "") { // Check thuộc tính linkDoc trong dữ liệu truyện
+        linkDocHTML = `
+            <div class="space-y-2 pt-2 border-t border-gray-100 mt-2">
+                <p class="text-sm font-semibold text-gray-800">
+                    📖 Link đọc: 
+                    <a href="${manga.linkDoc}" target="_blank" class="text-amber-600 font-bold hover:text-amber-700 transition-colors cursor-pointer ml-1">
+                        Tại đây➔
+                    </a>
+                </p>
+            </div>
+        `;
+    } else {
+        linkDocHTML = `
+            <div class="space-y-2 pt-2 border-t border-gray-100 mt-2">
+                <p class="text-sm font-semibold text-gray-800">
+                    📖 Link đọc: 
+                    <span class="text-gray-700 font-semibold italic ml-1">Updated soon</span>
                 </p>
             </div>
         `;
@@ -365,6 +398,7 @@ function goToMangaDetail(manga) {
                     </div>
                 </div>
             </div>
+            
         </div>
 
        <div class="pt-6 space-y-6">
@@ -406,7 +440,8 @@ function goToMangaDetail(manga) {
                 </div>
             </div>
 
-            ${linkHTML}
+            ${linkXemHTML}
+            ${linkDocHTML}
         </div>
 
     `;
