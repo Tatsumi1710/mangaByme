@@ -98,7 +98,7 @@
         rating: 9.1,
         intro:"",
         review:[],
-        link: ""
+        link: "Đang cập nhật"
     },
 
     {
@@ -429,28 +429,32 @@ function goToMangaDetail(manga) {
 
 // --- HÀM 3: Lọc dữ liệu tổng hợp dựa trên cả Thể loại và Thanh tìm kiếm ---
 function filterData() {
-    currentPage = 1; // Đưa về trang 1 khi tìm kiếm hoặc lọc thể loại
-    const searchKey = document.getElementById("search-input").value.toLowerCase().trim();
+    currentPage = 1; // Đưa về trang 1 khi lọc dữ liệu
     
+    // Kiểm tra an toàn: Lấy ô tìm kiếm trên thanh Header màu cam
+    const searchInput = document.getElementById("search-input");
+    
+    // Nếu tìm thấy ô input thì lấy chữ người dùng gõ, nếu không thấy thì mặc định là chuỗi rỗng ""
+    const searchKey = searchInput ? searchInput.value.toLowerCase() : "";
+    
+    // Tiến hành lọc mảng truyện
     const filtered = mangaData.filter(manga => {
         const matchesSearch = manga.title.toLowerCase().includes(searchKey);
         
         if (currentGenre === "all") {
             return matchesSearch;
         } else {
-            // Kiểm tra xem mảng thể loại của truyện có chứa thể loại đang lọc không
             return matchesSearch && manga.genre.includes(currentGenre);
         }
     });
-
+    
+    // Đổ dữ liệu đã lọc ra giao diện
     renderReviews(filtered);
 }
-
-
-
 // --- HÀM 4: Cài đặt sự kiện cho ô Nhập liệu tìm kiếm (Tương tác DOM) ---
 function setupSearchEvent() {
     const searchInput = document.getElementById("search-input");
+    
     // Lắng nghe sự kiện 'input' (mỗi khi người dùng gõ phím, trang tự động cập nhật ngay)
     searchInput.addEventListener("input", filterData);
 }
