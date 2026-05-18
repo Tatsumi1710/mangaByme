@@ -3,6 +3,21 @@
 // ==========================================
     const mangaData = [
     {
+        title: "A Bridge to the Starry Skies",
+        othertitle:"Hoshizora E kakuru",
+        image: "img/hoshizora.jpg",
+        author:" Feng",
+        year: "2010",
+        genre: ["Comedy"],
+        status: "Hoàn thành",
+        rating: 7.5,
+        intro:"",
+        review:"",
+        link: "",
+        link:""
+
+    },
+    {
         title: "Akame ga Kill",
         othertitle: "Akame ga Kiru",
         image: "img/Akamegakill.jpg",
@@ -160,6 +175,7 @@
         intro: "Satou Kazuma, một hikikomori đam mê trò chơi, Nhưng cuộc sống ngắn ngủi của anh kết thúc vì tai nạn giao thông lãng xẹt ... Nhưng khi anh ta tỉnh dậy, một cô gái xinh đẹp, người tự gọi mình là một nữ thần đã ở phía trước đôi mắt anh ấy và đưa anh ấy đến một thế giới khác, Khi sang thế giới mới, cậu gặp ngày càng nhiều mấy cô nàng không điên thì cũng tâm thần, riết rồi cậu muốn quay trở về thế giới cũ càng nhanh càng tốt...",
         review: ["peak isekai, mấy con gà biết gì:))"],
         link: "https://www.youtube.com/playlist?list=PLOVZwvNm10lXlKl2VHXGmpqqygCG6XbPw",
+        linkDoc:">>>"
     }
     
     
